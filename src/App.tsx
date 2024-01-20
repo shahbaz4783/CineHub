@@ -1,12 +1,13 @@
-import { Button } from './components/ui/button';
 import { ThemeProvider } from './components/theme-provider';
-import { ModeToggle } from './components/mode-toggle';
-
+import { fetchData } from './utils/api';
+import { Header } from './layouts/Header';
 function App() {
+  fetchData('/discover/movie').then((res) => {
+		console.log(res);
+	});
 	return (
 		<ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
-				<Button>Hello</Button>
-        <ModeToggle />
+      <Header />
 		</ThemeProvider>
 	);
 }
