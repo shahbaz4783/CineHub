@@ -1,5 +1,11 @@
+import { fetchData } from '@/utils/api';
+
 export const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+	fetchData('/discover/movie').then((res) => {
+		console.log(res.results);
+	});
+	return (
+		<div>
+		</div>
+	);
+};

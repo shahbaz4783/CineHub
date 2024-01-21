@@ -1,4 +1,5 @@
 import { ModeToggle } from '@/components/mode-toggle';
+import { NavLink } from 'react-router-dom';
 
 export const Header = () => {
 	return (
@@ -10,10 +11,10 @@ export const Header = () => {
 					</h1>
 				</div>
 				<nav className='flex gap-4 justify-between items-center fixed bottom-0 left-0 py-2 px-2 border-t w-full md:static md:border-none md:w-min'>
-					<a href='/'>Home</a>
-					<a href='/'>Movies</a>
-					<a href='/'>Shows</a>
-					<a href='/'>Profile</a>
+					<NavLink to='/'>Home</NavLink>
+					<NavLink to='/movies'>Movies</NavLink>
+					<NavLink to='/shows'>Shows</NavLink>
+					<NavLink to='/profile'>Profile</NavLink>
 				</nav>
 					<ModeToggle />
 			</section>
