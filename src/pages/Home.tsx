@@ -1,16 +1,19 @@
-import { fetchData } from '@/utils/api';
-import { useDispatch, useSelector } from 'react-redux';
-import { getApiConfig } from '@/store/homeSlice';
+import { useFetch } from '@/hooks/useFetch';
+import { useEffect, useState } from 'react';
 
 export const Home = () => {
-	const dispatch = useDispatch();
-	// const data = useSelector((state) => state.home);
+	const [movies, setMovies] = useState<any>();
+	const { data, loading } = useFetch('/movie/popular');
 
+	useEffect(() => {
+		setMovies(data.results);
+	}, [data]);
 
-
-	fetchData('/movie/popular').then((res) => {
-		dispatch(getApiConfig(res));
-	});
-
-	return <div>hi</div>;
+	return (
+		<div>
+			{movies?.map(
+				(movie: any) => !loading && <li key={movie.id}>{movie.title}</li>
+			)}
+		</div>
+	);
 };

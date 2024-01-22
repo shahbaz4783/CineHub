@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 interface homeState {
-	url: object;
-	genres: object;
+	url: any;
+	genres: any;
 }
 
 const initialState: homeState = {
