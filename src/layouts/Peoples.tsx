@@ -1,6 +1,6 @@
 import { useFetch } from '@/hooks/useFetch';
 import { useEffect, useState } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
+import { CardContent } from '@/components/ui/card';
 
 import {
 	Carousel,
@@ -26,25 +26,22 @@ export const Peoples = () => {
 
 	return (
 		<Carousel className='w-11/12 m-auto'>
-			<h1 className='text-2xl font-semibold font-serif mb-4'>
+			<h1 className='text-2xl font-mono mb-4'>
 				Popular Peoples
 			</h1>
-			<CarouselContent className='-ml-1'>
+			<CarouselContent>
 				{peoples?.map(
 					(people: Person) =>
 						!loading && (
 							<CarouselItem
 								key={people.id}
-								className=' basis-1/2 md:basis-1/3 lg:basis-1/6'
+								className=' basis-1/3 md:basis-1/4 lg:basis-1/12'
 							>
 								<CardContent className='border p-0 flex flex-col aspect-square items-center justify-center'>
 									<img
 										src={`https://image.tmdb.org/t/p/w500${people.profile_path}`}
 										alt='img'
 									/>
-									<p className='text-sm md:text-md font-mono truncate text-ellipsis overflow-hidden ...'>
-										{people.name}
-									</p>
 								</CardContent>
 							</CarouselItem>
 						)
